@@ -1,12 +1,16 @@
 import '../css/app.css';
 
 import Vue from 'vue';
-import test from '../components/test';
+import addExpenseForm from '../components/addExpenseForm';
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+Vue.use(VueAxios, axios);
 
 new Vue({
     el: '#app',
     components: {
-        test
+        addExpenseForm
     }
 });
 
