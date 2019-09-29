@@ -8,10 +8,11 @@ use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\GeneratedValue;
 use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @Entity
- * @Table(name="item")
+ * @Table(name="item", uniqueConstraints={@UniqueConstraint(name="name_idx", columns={"name"})})
  */
 class Item
 {
@@ -24,6 +25,7 @@ class Item
 
     /**
      * @Column(type="string", length=255)
+     *
      */
     private $name;
 

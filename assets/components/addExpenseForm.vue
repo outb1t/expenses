@@ -1,12 +1,12 @@
 <template>
 
     <form>
-        <input name="expenseName" type="text" v-model="form.expenseName">
+        <input name="item" type="text" v-model="form.item">
         <input name="count" type="text" v-model="form.count">
         <input name="amount" type="text" v-model="form.amount">
         <datepicker v-model="form.date"></datepicker>
         <input type="time" v-model="form.time">
-        <button @click.prevent="getFormValues()" type="submit">Add</button>
+        <button @click.prevent="submitForm()" type="submit">Add</button>
     </form>
 
 </template>
@@ -20,7 +20,7 @@
         data() {
             return {
                 form: {
-                    expenseName: null,
+                    item: null,
                     count: 1,
                     amount: null,
                     date: new Date(),
@@ -29,8 +29,8 @@
             };
         },
         methods: {
-            getFormValues() {
-                this.axios.post('/form', this.form)
+            submitForm() {
+                this.axios.post('/api/expenses', this.form)
                     .then(function (response) {
                         console.log(response);
                     })

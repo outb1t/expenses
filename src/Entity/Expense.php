@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping\Id;
 use Doctrine\ORM\Mapping\JoinColumn;
 use Doctrine\ORM\Mapping\ManyToOne;
 use Doctrine\ORM\Mapping\Table;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
  * @Entity
@@ -29,16 +30,19 @@ class Expense
     /**
      * @ManyToOne(targetEntity="Item", cascade={"persist"})
      * @JoinColumn(name="item_id", referencedColumnName="id")
+     * @NotBlank()
      */
     private $item;
 
     /**
      * @Column(type="integer")
+     * @NotBlank()
      */
     private $count;
 
     /**
      * @Column(type="decimal")
+     * @NotBlank()
      */
     private $amount;
 
@@ -78,10 +82,12 @@ class Expense
 
     /**
      * @param mixed $item
+     * @return Expense
      */
-    public function setItem($item): void
+    public function setItem($item): self
     {
         $this->item = $item;
+        return $this;
     }
 
     /**
@@ -94,10 +100,12 @@ class Expense
 
     /**
      * @param mixed $count
+     * @return Expense
      */
-    public function setCount($count): void
+    public function setCount($count): self
     {
         $this->count = $count;
+        return $this;
     }
 
     /**
@@ -110,10 +118,12 @@ class Expense
 
     /**
      * @param mixed $amount
+     * @return Expense
      */
-    public function setAmount($amount): void
+    public function setAmount($amount): self
     {
         $this->amount = $amount;
+        return $this;
     }
 
     /**
@@ -126,10 +136,12 @@ class Expense
 
     /**
      * @param mixed $date
+     * @return Expense
      */
-    public function setDate($date): void
+    public function setDate($date): self
     {
         $this->date = $date;
+        return $this;
     }
 
     /**
@@ -142,10 +154,12 @@ class Expense
 
     /**
      * @param mixed $time
+     * @return Expense
      */
-    public function setTime($time): void
+    public function setTime($time): self
     {
         $this->time = $time;
+        return $this;
     }
 
 }
