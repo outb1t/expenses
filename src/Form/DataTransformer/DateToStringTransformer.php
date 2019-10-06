@@ -34,7 +34,7 @@ class DateToStringTransformer implements DataTransformerInterface
      *
      * @throws Exception
      */
-    public function reverseTransform($value)
+    public function reverseTransform($value): DateTime
     {
         return new DateTime($value);
     }
