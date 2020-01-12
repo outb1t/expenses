@@ -7,18 +7,11 @@ namespace App\Controller\Rest;
 use App\Entity\Expense;
 use App\Form\ExpenseType;
 use Doctrine\ORM\EntityManagerInterface;
-use FOS\RestBundle\Controller\AbstractFOSRestController;
-use FOS\RestBundle\Controller\Annotations as Rest;
-use FOS\RestBundle\Controller\Annotations\Prefix;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * Class ExpensesController
- * @Prefix("/api")
- * @Rest\NamePrefix("api_")
- */
-class ExpensesController extends AbstractFOSRestController
+
+class ExpensesController
 {
 
     /**
